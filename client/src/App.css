@@ -1,0 +1,40 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-header-image {
+    width: 100vw;
+    height: 90vh;
+}
+
+.overlay {
+    position: absolute;
+    background: rgb(0,0,0, 0.5);
+    width: 100vw;
+    height: 90vh;
+    top: 0;
+}
+
+.App-header-text {
+    position: absolute;
+    top: 7rem;
+    background: black;
+    width: 50vw;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.App-link {
+  color: #61dafb;
+}
