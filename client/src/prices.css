@@ -1,0 +1,17 @@
+.price-container {
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.price-card {
+    background: white;
+    color: black;
+    box-shadow: 0 .5px .5px .5px black;
+    margin: 0 1rem;
+    display: flex;
+    height: 10rem;
+    width: 10rem;
+    flex-direction: column;
+}

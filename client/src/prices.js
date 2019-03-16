@@ -1,32 +1,50 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
+import './prices.css';
 import axios from 'axios'
 
-export default class Prices extends Component {
-    constructor() {
-        super()
-        this.state = {}
-    }
 
-    async componentDidMount() {
+
+
+// useAxios sets state
+const useAxios = () => {
+
+    const [prices, updatePrices] = useState([]);
+
+    // getPrices makes ajax request and updates state
+    const getPrices = async () => {
         let { data } = await axios.get('/prices')
-        this.setState({ prices: data })
-
+        updatePrices(data)
     }
 
-    render() {
-        const { prices } = this.state
-        if (!prices) return <div className = 'loading'></div>
+    useEffect(() => {
+        getPrices()
+    // empty array tells useEffect to run only on mount and unmount
+    }, [])
+
+    return prices
+
+}
+
+
+export default function Prices() {
+
+    const prices = useAxios()
+    if (!prices.length) return <div className = 'loading'></div>
 
         return (
-            <div className = "price-table">
-            { !!prices && prices.map(p => {
+            <div className = "price-container">
+
+                { !!prices && prices.map(p => {
                 return (
-                    <div className = 'price-row'>
-                        <p>{ p.expense ? p.expense : p.activity } { p.city } ${ p.price }</p>
+                    <div key = { p.id } className = 'price-card'>
+                        <p>{ p.expense ? p.expense : p.activity }</p>
+                        <p>{ p.city }</p>
+                        <p>${ p.price }</p>
                     </div>
                 )
             })}
+
             </div>
         )
-    }
+
 }

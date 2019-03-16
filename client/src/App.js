@@ -18,10 +18,12 @@ export default class App extends Component {
                     <div className = "overlay"></div>
                     <img className = "App-header-image" src= '/jp.jpg'  alt="bustling street in some city in Japan"/>
                     <h1 className = "App-header-text">Japan O'Clock</h1>
-                    <Info />
-                    <Prices />
 
                 </header>
+
+                <Info />
+                <Prices />
+                
             </div>
         );
     }
