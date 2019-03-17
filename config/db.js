@@ -23,9 +23,9 @@ exports.registerUser = (first, last, email, password) => {
     );
 };
 
-exports.getPasswordAndIdByEmail = email => {
+exports.getUserInfoByEmail = email => {
     return db.query(
-        `SELECT password, id FROM users
+        `SELECT password, id, first FROM users
         WHERE email = $1`,
         [ email ]
     );

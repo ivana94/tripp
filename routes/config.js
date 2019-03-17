@@ -1,9 +1,12 @@
+const cp = require("cookie-parser");
 const cs = require('cookie-session')
-const csurf = require("csurf");
 const bp = require("body-parser");
+const csurf = require("csurf");
 const { secret } = require('./../config/secrets');
 
 module.exports = (express, app) => {
+
+    app.use(cp());
 
     app.use(
         cs({

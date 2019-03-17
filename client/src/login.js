@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // my useInput custom hook
 import { useInput } from './hooks/useInput'
@@ -6,27 +6,32 @@ import axios from './axios'
 
 export default function Login() {
 
-    const { value:email, setValue:setEmail, bind:bindEmail, reset:resetEmail } = useInput('')
-    const { value:password, setValue:setPassword, bind:bindPassword, reset:resetPassword } = useInput('')
+    const { value:email, bind:bindEmail, reset:resetEmail } = useInput('');
+    const { value:password, bind:bindPassword, reset:resetPassword } = useInput('');
+    
+    const [error, setError] = useState('');
 
     const handleSubmit = async e => {
-        e.preventDefault()
+        e.preventDefault();
 
         if (!email || !password) {
-            resetEmail()
-            resetPassword()
-            return
+            resetEmail();
+            resetPassword();
+            return;
         }
 
-        const { data } = await axios.post('/login', { email, password })
+        const { data } = await axios.post('/login', { email, password });
         if (data.success) {
-            window.location.replace('/')
+            window.location.replace('/');
+        } else {
+            setError(data.error);
         }
     }
 
     return (
         <div className = "login-container">
             <h1>Login</h1>
+            { error && <div className = 'error'>{ error }</div> }
             <form onSubmit = { handleSubmit }>
                 <input
                     name = "email"
