@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
+import axios from './axios';
 import Info from './info'
 import Prices from './prices'
 
@@ -23,7 +23,7 @@ export default class App extends Component {
 
                 <Info />
                 <Prices />
-                
+
             </div>
         );
     }

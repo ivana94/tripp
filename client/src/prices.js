@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './prices.css';
-import axios from 'axios'
+import axios from './axios'
 
 
 
@@ -29,6 +29,7 @@ const useAxios = () => {
 export default function Prices() {
 
     const prices = useAxios()
+
     if (!prices.length) return <div className = 'loading'></div>
 
         return (
