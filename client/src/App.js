@@ -4,6 +4,7 @@ import './App.css';
 import axios from './axios';
 import Info from './info'
 import Prices from './prices'
+import Dashboard from './dashboard'
 
 export default class App extends Component {
     constructor() {
@@ -23,6 +24,7 @@ export default class App extends Component {
 
                 <Info />
                 <Prices />
+                <Dashboard />
 
             </div>
         );

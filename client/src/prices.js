@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import './prices.css';
-import axios from './axios'
 import { useAxios } from './hooks/useAxios'
 
 

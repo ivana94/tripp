@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
-const db = require('./config/db')
-const bc = require('./config/bc')
+
+const users = require('./lib/users')
+const prices = require('./lib/prices')
+const auth = require('./lib/auth');
 const port = process.env.PORT || 5000;
 
 const config = require('./routes/config');
@@ -9,22 +11,28 @@ const config = require('./routes/config');
 // sets up body parser, cookie session, csurf, serves static directory
 config(express, app);
 
+app.get('/user', async (req, res) => {
+    // let user = await users.getUserById(req.session.userId);
+    res.json({
+        notDone: true
+    })
+})
 
 app.post('/login', async (req, res) => {
     try {
-        const { rows } = await db.getUserInfoByEmail(req.body.email);
+        const user = await users.getUserByEmail(req.body.email);
 
-        if (!rows.length) {
+        if (!user) {
             throw new Error('incorrect email');
         }
 
-        const doesMatch = await bc.compare(req.body.password, rows[0].password);
+        const doesMatch = await auth.compare(req.body.password, user.password);
 
         if (!doesMatch) {
-            throw new Error(`jesus christ ${rows[0].first}, did you forget your password?`);
+            throw new Error(`jesus christ ${user.first}, did you forget your password?`);
         }
 
-        req.session.userId = rows[0].id;
+        req.session.userId = user.id;
 
         res.json({ success: true });
 
@@ -38,8 +46,8 @@ app.post('/login', async (req, res) => {
 });
 
 app.get('/prices', async (req, res) => {
-    let { rows } = await db.getPrices();
-    res.json(rows);
+    let data = await prices.getPrices();
+    res.json(data);
 });
 
 app.get('/logout', (req, res) => {
