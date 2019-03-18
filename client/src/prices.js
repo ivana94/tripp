@@ -1,34 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import './prices.css';
 import axios from './axios'
-
-
-
-
-// useAxios sets state
-const useAxios = () => {
-
-    const [prices, updatePrices] = useState([]);
-
-    // getPrices makes ajax request and updates state
-    const getPrices = async () => {
-        let { data } = await axios.get('/prices')
-        updatePrices(data)
-    }
-
-    useEffect(() => {
-        getPrices()
-    // empty array tells useEffect to run only on mount and unmount
-    }, [])
-
-    return prices
-
-}
+import { useAxios } from './hooks/useAxios'
 
 
 export default function Prices() {
 
-    const prices = useAxios()
+    const prices = useAxios('/prices')
 
     if (!prices.length) return <div className = 'loading'></div>
 
