@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import axios from './../axios'
+import React, { useState, useEffect } from 'react';
+import axios from './../axios';
 
 // useAxios sets state
 export const useAxios = url => {
@@ -19,4 +19,4 @@ export const useAxios = url => {
 
     return value
 
-}
+};

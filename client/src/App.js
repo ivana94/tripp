@@ -2,9 +2,13 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from './axios';
-import Info from './info'
-import Prices from './prices'
-import Dashboard from './dashboard'
+import Info from './info';
+import Prices from './prices';
+import Dashboard from './dashboard';
+import Worksheet from './worksheet';
+
+import {BrowserRouter, Route, Redirect, Switch} from 'react-router-dom';
+
 
 export default class App extends Component {
     constructor() {
@@ -23,8 +27,25 @@ export default class App extends Component {
                 </header>
 
                 <Info />
-                <Prices />
-                <Dashboard />
+
+            <BrowserRouter>
+                <div>
+                    <Switch>
+                        <Route
+                               exact path="/"
+                               render={() => (
+                                   <div>
+                                       <Info />
+                                       <Prices />
+                                       <Dashboard />
+                                   </div>
+                               )}
+                           />
+                        <Route path = "/learn" component = {Worksheet} />
+                        <Redirect path="*" to="/" />
+                    </Switch>
+                </div>
+            </BrowserRouter>
 
             </div>
         );

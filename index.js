@@ -11,6 +11,12 @@ const config = require('./routes/config');
 // sets up body parser, cookie session, csurf, serves static directory
 config(express, app);
 
+app.get('/get-hiragana', (req, res) => {
+    res.json({
+        hiragana: require('./content/hiragana')
+    })
+})
+
 app.get('/user', async (req, res) => {
     // let user = await users.getUserById(req.session.userId);
     res.json({

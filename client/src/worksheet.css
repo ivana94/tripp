@@ -1,0 +1,26 @@
+.worksheet-container {
+    height: 50vh;
+    margin: 5vh 0;
+}
+
+.kana-container {
+    display: inline-block;
+    color: white;
+    font-size: 1rem;
+
+    width: 10rem;
+    height: 5rem;
+}
+
+.kana-container input {
+    text-align: center;
+    background: black;
+    color: white;
+    border: transparent;
+    width: 9.5rem;
+}
+
+.kana-container p {
+    font-size: 2rem;
+    font-weight: bold;
+}
