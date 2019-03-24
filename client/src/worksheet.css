@@ -1,13 +1,17 @@
 .worksheet-container {
-    height: 50vh;
-    margin: 5vh 0;
+    padding: 0 20%;
+    margin: 10vh 0;
+}
+
+.worksheet-container button {
+    display: block;
+    margin: 0 auto;
 }
 
 .kana-container {
     display: inline-block;
     color: white;
-    font-size: 1rem;
-
+    margin: 0 0.5rem;
     width: 10rem;
     height: 5rem;
 }
@@ -17,7 +21,9 @@
     background: black;
     color: white;
     border: transparent;
-    width: 9.5rem;
+    font-size: 2rem;
+    width: 3.5rem;
+    height: 2rem;
 }
 
 .kana-container p {

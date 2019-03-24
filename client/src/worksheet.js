@@ -17,10 +17,11 @@ export default function Worksheet() {
         <div className = 'worksheet-container'>
             { scrambledKana && scrambledKana.map((k, idx) => (
                 <div key = { idx } className = "kana-container">
-                    <input name = "kana" />
+                    <input autoComplete = "off" name = "kana" />
                     <p>{ k }</p>
                 </div>
             ))}
+            <button onClick = { () => useHiragana() }>submit</button>
         </div>
     )
 }
