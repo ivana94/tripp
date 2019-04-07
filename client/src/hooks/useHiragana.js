@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from './../axios';
 
 export const useHiragana = _ => {
+    console.log('yo');
 
     // const [value, setValue] = useState([]);
     //

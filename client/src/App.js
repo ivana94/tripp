@@ -20,9 +20,9 @@ export default class App extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <div className = "overlay"></div>
-                    <img className = "App-header-image" src= '/jp.jpg'  alt="bustling street in some city in Japan"/>
-                    <h1 className = "App-header-text">Japan O'Clock</h1>
+                    <div className = "App-yellow-box"></div>
+                    <div className = "App-red-box"></div>
+                    <h1 className = "App-header-text">日本!!!</h1>
 
                 </header>
 

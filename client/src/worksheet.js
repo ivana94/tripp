@@ -17,7 +17,7 @@ export default function Worksheet() {
         <div className = 'worksheet-container'>
             { scrambledKana && scrambledKana.map((k, idx) => (
                 <div key = { idx } className = "kana-container">
-                    <input autoComplete = "off" name = "kana" />
+                    <input name = { idx } onChange = { () => useHiragana() } autoComplete = "off"  />
                     <p>{ k }</p>
                 </div>
             ))}
