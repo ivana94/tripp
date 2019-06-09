@@ -4,7 +4,7 @@ import './dashboard.css'
 
 export default function Dashboard() {
     const data = useAxios('/user');
-    console.log("data", data);
+
     return (
         <div className = "dashboard-container">
             <h1>yoooo</h1>

@@ -16,17 +16,30 @@ export default class App extends Component {
         this.state = {}
     }
 
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                loadingComplete: true
+            })
+        }, 500)
+    }
+
     render() {
         return (
             <div className="App">
                 <header className="App-header">
                     <div className = "App-yellow-box"></div>
-                    <div className = "App-red-box"></div>
-                    <h1 className = "App-header-text">日本!!!</h1>
+                    <div className = "header-image-container">
+                        <img className = "App-header-image" src = '/jp.jpg'/>
+                    </div>
+                    <h1 className = "App-header-text">日本 !</h1>
 
                 </header>
 
-                <Info />
+                <section className = "section-header">
+                    <div className = { this.state.loadingComplete ? "App-red-box" : 'App-red-box-loading'}></div>
+                    <h1>Spring 2020. Let's go.</h1>
+                </section>
 
             <BrowserRouter>
                 <div>

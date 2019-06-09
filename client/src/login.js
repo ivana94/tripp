@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-
-// my useInput custom hook
 import { useInput } from './hooks/useInput'
 import axios from './axios'
 
@@ -8,15 +6,16 @@ export default function Login() {
 
     const { value:email, bind:bindEmail, reset:resetEmail } = useInput('');
     const { value:password, bind:bindPassword, reset:resetPassword } = useInput('');
-    
+
     const [error, setError] = useState('');
 
     const handleSubmit = async e => {
         e.preventDefault();
 
         if (!email || !password) {
-            resetEmail();
-            resetPassword();
+            // if (!email) resetEmail();
+            // if (!password) resetPassword()
+            setError(`please enter a valid ${!email ? 'email' : ''} ${ !email && !password ? 'and' : '' } ${!password ? 'password' : ''}`)
             return;
         }
 

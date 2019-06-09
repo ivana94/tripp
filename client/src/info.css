@@ -1,0 +1,19 @@
+:root {
+    --box-dim: 750px;
+}
+
+.info-container {
+    margin: 0 auto;
+    overflow: hidden;
+    width: calc(100vw - 5rem);
+}
+
+.info-background {
+    background: #0ad4db;
+    transform: rotate(140deg);
+    width: var(--box-dim);
+    height: var(--box-dim) ;
+    position: absolute;
+    right: calc(var(--box-dim) / -1.5);
+    z-index: -1;
+}

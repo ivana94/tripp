@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHiragana } from './hooks/useHiragana';
 import { useAxios } from './hooks/useAxios';
 import { scrambleKana } from './lib/learn';
 import './worksheet.css'
@@ -17,11 +16,11 @@ export default function Worksheet() {
         <div className = 'worksheet-container'>
             { scrambledKana && scrambledKana.map((k, idx) => (
                 <div key = { idx } className = "kana-container">
-                    <input name = { idx } onChange = { () => useHiragana() } autoComplete = "off"  />
+                    <input name = { idx } autoComplete = "off"  />
                     <p>{ k }</p>
                 </div>
             ))}
-            <button onClick = { () => useHiragana() }>submit</button>
+            <button onClick = { () => console.log('running but doing nothing') }>submit</button>
         </div>
     )
 }

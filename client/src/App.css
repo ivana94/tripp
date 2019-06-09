@@ -1,5 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
 .App-header {
@@ -7,39 +12,75 @@
   font-size: calc(10px + 2vmin);
   color: white;
   /* rice by Made by Made from the Noun Project */
-  background-image: url('/rice.svg');
+  /* background-image: url('/rice.svg'); */
   background-size: 2%;
 }
 
 .App-yellow-box {
     width: 10vw;
     height: 17vh;
-    background: yellow;
+    /* background: yellow; */
     position: absolute;
     z-index: -1;
 }
 
-.App-red-box {
-    width: 40vw;
-    height: 27vh;
-    background: #ed7878;
+.header-image-container {
+    background: black;
+    width: 50vw;
+    height: 55vh;
     position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: -1;
+    top: 20%;
+    left: 25%;
+}
+
+.App-header-image {
+    position: relative;
+    width: 50vw;
+    height: 56vh;
+    top: 15px;
+    left: 15px;
 }
 
 .App-header-text {
     position: absolute;
-    background: black;
+    background: #0ad4db;
     width: 25vw;
     left: 5vw;
     font-size: 5rem;
     font-weight: bold;
-    transition: left 1s;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.section-header > div {
+    height: 200px;
+    background: #ff6666;
+    /* position: absolute; */
+    border-radius: 50%;
+    right: -10%;
+    top: 30%;
+    transition: width 1s ease-out;
+}
+
+.App-red-box {
+    width: 200px;
+}
+
+.App-red-box-loading {
+    width: 0;
+}
+
+.section-header {
+    padding: 30vh 0;
+    font-size: 4em;
+    /* border: 1px solid black; */
+}
+
+.section-header > h1 {
+    margin: 30vh auto;
+    background: black;
+    color: white;
+    width: 90vw;
 }

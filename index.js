@@ -43,11 +43,8 @@ app.post('/login', async (req, res) => {
         res.json({ success: true });
 
     } catch (e) {
-        console.log(e);
-        res.json({
-            success: false,
-            error: e.message
-        });
+        console.log(e.message);
+        res.json({ success: false, error: e.message });
     }
 });
 
