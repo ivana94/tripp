@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
-import { useInput } from './hooks/useInput'
-import axios from './axios'
+import React, { useState } from 'react';
+import { useInput } from './hooks/useInput';
+import axios from './axios';
+import './login.css';
 
 export default function Login() {
 
-    const { value:email, bind:bindEmail, reset:resetEmail } = useInput('');
-    const { value:password, bind:bindPassword, reset:resetPassword } = useInput('');
+    const { value:email, bind:bindEmail, clear:clearEmail } = useInput('');
+    const { value:password, bind:bindPassword, clear:clearPassword } = useInput('');
 
     const [error, setError] = useState('');
 
@@ -13,9 +14,12 @@ export default function Login() {
         e.preventDefault();
 
         if (!email || !password) {
-            // if (!email) resetEmail();
-            // if (!password) resetPassword()
-            setError(`please enter a valid ${!email ? 'email' : ''} ${ !email && !password ? 'and' : '' } ${!password ? 'password' : ''}`)
+            setError(
+                `please enter your
+                ${!email ? 'email' : ''}
+                ${ !email && !password ? 'and' : '' }
+                ${!password ? 'password' : ''}`
+            )
             return;
         }
 
@@ -23,6 +27,8 @@ export default function Login() {
         if (data.success) {
             window.location.replace('/');
         } else {
+            clearEmail();
+            clearPassword();
             setError(data.error);
         }
     }
