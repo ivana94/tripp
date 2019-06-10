@@ -2,16 +2,35 @@
     padding: 10px;
     color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
 .price-card {
+    width: 100%;
     background: white;
     color: black;
-    box-shadow: 0 .5px .5px .5px black;
-    margin: 0 1rem;
-    display: flex;
-    height: 10rem;
-    width: 10rem;
-    flex-direction: column;
+    margin: 1rem;
+    height: 5rem;
+}
+
+.activity-desc {
+    background: goldenrod;
+}
+
+.expense-desc {
+    background: violet;
+}
+
+.price-left {
+    float: left;
+}
+
+.price-right {
+    float: right;
+}
+
+.price-item {
+    font-weight: bold;
+    font-size: 1.5rem;
 }

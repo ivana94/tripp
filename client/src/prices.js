@@ -12,15 +12,21 @@ export default function Prices() {
         return (
             <div className = "price-container">
 
-                { !!prices && prices.map(p => {
+                { !!prices.length && prices.map(p => {
                 return (
-                    <div key = { p.id } className = 'price-card'>
-                        <p>{ p.expense ? p.expense : p.activity }</p>
-                        <p>{ p.city }</p>
-                        <p>${ p.price }</p>
+                    <div key = { p.id } className = { p.expense ? "expense-desc price-card" : 'activity-desc price-card' }>
+                        <div className = 'price-left'>
+                            <p>{ p.expense ? p.expense : p.activity }</p>
+                            <p>{ p.city }</p>
+                        </div>
+                        <div className = 'price-right'>
+                            <p className = 'price-item'>${ p.price }</p>
+                        </div>
                     </div>
                 )
             })}
+
+            <p className = 'total-cost'>{ !!prices.length && prices.reduce((a,b) => a + b.price, 0) }</p>
 
             </div>
         )

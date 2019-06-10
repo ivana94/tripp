@@ -20,7 +20,6 @@ export default function Login() {
             ${!password ? 'password' : ''}`
         )
 
-
         const { data } = await axios.post('/login', { email, password });
         if (data.success) window.location.replace('/');
         else {
