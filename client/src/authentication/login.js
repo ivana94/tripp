@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useInput } from './hooks/useInput';
-import axios from './axios';
+import { useInput } from '../hooks/useInput';
+import axios from '../axios';
 import './login.css';
 
 export default function Login() {
@@ -13,20 +13,17 @@ export default function Login() {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        if (!email || !password) {
-            setError(
-                `please enter your
-                ${!email ? 'email' : ''}
-                ${ !email && !password ? 'and' : '' }
-                ${!password ? 'password' : ''}`
-            )
-            return;
-        }
+        if (!email || !password) return setError(
+            `please enter your
+            ${!email ? 'email' : ''}
+            ${ !email && !password ? 'and' : '' }
+            ${!password ? 'password' : ''}`
+        )
+
 
         const { data } = await axios.post('/login', { email, password });
-        if (data.success) {
-            window.location.replace('/');
-        } else {
+        if (data.success) window.location.replace('/');
+        else {
             clearEmail();
             clearPassword();
             setError(data.error);

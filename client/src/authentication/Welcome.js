@@ -1,10 +1,10 @@
-import React from 'react'
-import Login from './login'
+import React from 'react';
+import Login from './login';
+import './Welcome.css';
 
 export default function Welcome() {
     return (
         <div className = 'welcome-container'>
-            <h1>Welcome!</h1>
             <Login />
         </div>
     )

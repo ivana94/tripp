@@ -2,6 +2,16 @@
     box-sizing: border-box;
 }
 
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}
+
 .App {
   text-align: center;
   overflow: hidden;

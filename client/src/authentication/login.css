@@ -1,0 +1,42 @@
+.login-container {
+    border: 3px solid black;
+    padding: 100px;
+    border-radius: 5px;
+    background: aliceblue;
+    box-shadow: 5px 5px 0;
+}
+
+input {
+    display: block;
+    min-width: 125px;
+    min-height: 2rem;
+    padding-left: 1rem;
+    border: 1px solid #eee;
+    background: lightgray;
+    margin: 1rem 0;
+    border-left: 3px solid salmon;
+    border-radius: 5px;
+    transition: border-color .5s ease-out;
+}
+
+input:focus {
+    border-color: transparent;
+    background: none;
+}
+
+button {
+    min-width: calc(125px + 1rem);
+    background: salmon;
+    margin: 1rem 0 0;
+    border-radius: 5px;
+    height: 2rem;
+    border: 1px solid #eee;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+}
+
+.input-error {
+    border: 2px solid red;
+    background: #ff8e8e;
+}

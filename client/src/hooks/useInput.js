@@ -15,7 +15,7 @@ export const useInput = init => {
             value,
             onChange: e => setValue(e.target.value),
             onBlur: _ => setBlur(true),
-            className: (!value && blur) && "input-error",
+            className: (!value && blur) ? "input-error" : ''
         }
     };
 };
