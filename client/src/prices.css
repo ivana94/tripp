@@ -1,6 +1,5 @@
 .price-container {
     padding: 10px;
-    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,7 +9,7 @@
     width: 100%;
     background: white;
     color: black;
-    margin: 1rem;
+    margin: 1rem 0;
     height: 5rem;
 }
 
@@ -33,4 +32,12 @@
 .price-item {
     font-weight: bold;
     font-size: 1.5rem;
+}
+
+.total-cost {
+    font-size: 2rem;
+}
+
+.toggle {
+    cursor: pointer;
 }

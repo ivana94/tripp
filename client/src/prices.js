@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react';
 import './prices.css';
-import { useAxios } from './hooks/useAxios'
+import { useAxios } from './hooks/useAxios';
+import { useToggle } from './hooks/useToggle';
+import PriceEditor from './price-editor'
+
 
 
 export default function Prices() {
 
-    const prices = useAxios('/prices')
+    const prices = useAxios('/prices');
+    const { editorIsVisible, toggle } = useToggle();
 
-    if (!prices.length) return <div className = 'loading'></div>
+    if (!prices.length) return <div className = 'loading'></div>;
 
         return (
             <div className = "price-container">
@@ -26,9 +30,13 @@ export default function Prices() {
                 )
             })}
 
-            <p className = 'total-cost'>{ !!prices.length && prices.reduce((a,b) => a + b.price, 0) }</p>
+            <p className = 'total-cost'>total cost: ${ !!prices.length && prices.reduce((a,b) => a + b.price, 0) }</p>
 
-            </div>
-        )
+            <p className = "toggle" onClick = { toggle }>+ add new item here</p>
+
+            { editorIsVisible && <PriceEditor /> }
+
+        </div>
+    )
 
 }
