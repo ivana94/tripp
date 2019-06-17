@@ -4,8 +4,6 @@ import { useAxios } from './hooks/useAxios';
 import { useToggle } from './hooks/useToggle';
 import PriceEditor from './price-editor'
 
-
-
 export default function Prices() {
 
     const prices = useAxios('/prices');

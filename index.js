@@ -27,25 +27,25 @@ app.get('/user', async (req, res) => {
 app.post('/login', async (req, res) => {
     try {
         const user = await users.getUserByEmail(req.body.email);
-
         if (!user) {
             throw new Error('incorrect email');
         }
-
         const doesMatch = await auth.compare(req.body.password, user.password);
-
         if (!doesMatch) {
             throw new Error(`jesus christ ${user.first}, did you forget your password?`);
         }
-
         req.session.userId = user.id;
-
         res.json({ success: true });
-
     } catch (e) {
         console.log(e.message);
         res.json({ success: false, error: e.message });
     }
+});
+
+app.post('/price', async (req, res) => {
+    const { activity, price, city } = req.body;
+    let data = await prices.addActivity(req.body);
+    res.json({ success: true });
 });
 
 app.get('/prices', async (req, res) => {
