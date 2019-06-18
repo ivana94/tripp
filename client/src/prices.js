@@ -16,9 +16,9 @@ export default function Prices() {
 
                 { !!prices.length && prices.map(p => {
                 return (
-                    <div key = { p.id } className = { p.expense ? "expense-desc price-card" : 'activity-desc price-card' }>
+                    <div key = { p.id } className = { p.is_expense ? "expense-desc price-card" : 'activity-desc price-card' }>
                         <div className = 'price-left'>
-                            <p>{ p.expense ? p.expense : p.activity }</p>
+                            <p>{ p.item }</p>
                             <p>{ p.city }</p>
                         </div>
                         <div className = 'price-right'>

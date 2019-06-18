@@ -50,6 +50,7 @@ app.post('/price', async (req, res) => {
 
 app.get('/prices', async (req, res) => {
     let data = await prices.getPrices();
+    console.log(data);
     res.json(data);
 });
 
