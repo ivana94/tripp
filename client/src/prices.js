@@ -2,7 +2,7 @@ import React from 'react';
 import './prices.css';
 import { useAxios } from './hooks/useAxios';
 import { useToggle } from './hooks/useToggle';
-import PriceEditor from './price-editor'
+import PriceEditor from './price-editor';
 
 export default function Prices() {
 
@@ -37,4 +37,4 @@ export default function Prices() {
         </div>
     )
 
-}
+};
