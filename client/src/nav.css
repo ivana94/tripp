@@ -1,0 +1,16 @@
+.nav-container {
+    height: 100vh;
+    width: 20vw;
+    position: fixed;
+    top: 0;
+    border: 1px solid black;
+    transition: left 0.5s linear;
+}
+
+.off {
+    left: 100%;
+}
+
+.on {
+    left: calc(100% - 20vw);
+}
