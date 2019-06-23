@@ -1,19 +1,11 @@
-const cp = require("cookie-parser");
-const cs = require('cookie-session')
+const cs = require('cookie-session');
 const bp = require("body-parser");
 const csurf = require("csurf");
 const { secret } = require('./../secrets');
 
 module.exports = (express, app) => {
 
-    app.use(cp());
-
-    app.use(
-        cs({
-            secret,
-            maxAge: 24 * 60 * 60 * 1000
-        })
-    );
+    app.use(cs({ secret, maxAge: 24 * 60 * 60 * 1000 }));
 
     app.use(bp.json());
 
@@ -30,4 +22,6 @@ module.exports = (express, app) => {
 
     app.use(express.static('./client/public'));
 
-}
+    process.on('unhandledRejection', err => console.log('unhandledRejection: ', err));
+
+};

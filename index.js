@@ -1,46 +1,26 @@
 const express = require('express');
 const app = express();
 
-const users = require('./lib/users')
-const prices = require('./lib/prices')
-const auth = require('./lib/auth');
+const prices = require('./lib/prices');
 const port = process.env.PORT || 5000;
+const { catchErrors } = require('./handlers/catchErrors');
+const { handleLogin } = require('./handlers/login');
 
 const config = require('./routes/config');
 
 // sets up body parser, cookie session, csurf, serves static directory
 config(express, app);
-
+        
 app.get('/get-hiragana', (req, res) => {
-    res.json({
-        hiragana: require('./content/hiragana')
-    })
-})
+    res.json({ hiragana: require('./content/hiragana') });
+});
 
 app.get('/user', async (req, res) => {
     // let user = await users.getUserById(req.session.userId);
-    res.json({
-        notDone: true
-    })
-})
-
-app.post('/login', async (req, res) => {
-    try {
-        const user = await users.getUserByEmail(req.body.email);
-        if (!user) {
-            throw new Error('incorrect email');
-        }
-        const doesMatch = await auth.compare(req.body.password, user.password);
-        if (!doesMatch) {
-            throw new Error(`jesus christ ${user.first}, did you forget your password?`);
-        }
-        req.session.userId = user.id;
-        res.json({ success: true });
-    } catch (e) {
-        console.log(e.message);
-        res.json({ success: false, error: e.message });
-    }
+    res.json({ notDone: true });
 });
+
+app.post('/login', catchErrors(handleLogin));
 
 app.post('/price', async (req, res) => {
     const { activity, price, city } = req.body;
@@ -59,3 +39,7 @@ app.get('/logout', (req, res) => {
 });
 
 app.listen(port, () => console.log('listening'));
+
+// process.on('unhandledRejection', err => {
+//     console.log('unhandledRejection: ', err);
+// })
