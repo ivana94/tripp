@@ -13,8 +13,19 @@ body, html {
 }
 
 .App {
-  text-align: center;
-  overflow: hidden;
+    text-align: center;
+    overflow: hidden;
+}
+
+.darken-background:after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .App-header {
@@ -24,14 +35,6 @@ body, html {
   /* rice by Made by Made from the Noun Project */
   /* background-image: url('/rice.svg'); */
   background-size: 2%;
-}
-
-.App-yellow-box {
-    width: 10vw;
-    height: 17vh;
-    /* background: yellow; */
-    position: absolute;
-    z-index: -1;
 }
 
 .header-image-container {

@@ -3,8 +3,9 @@
     width: 20vw;
     position: fixed;
     top: 0;
-    border: 1px solid black;
     transition: left 0.5s linear;
+    background: white;
+    z-index: 1;
 }
 
 .off {
