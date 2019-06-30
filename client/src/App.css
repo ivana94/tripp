@@ -38,7 +38,7 @@ body, html {
 }
 
 .header-image-container {
-    background: black;
+    background: rgb(242, 98, 98);
     width: 50vw;
     height: 55vh;
     position: absolute;
@@ -52,6 +52,7 @@ body, html {
     height: 56vh;
     top: 15px;
     left: 15px;
+    box-shadow: 3px 3px 3px 1px black;
 }
 
 .App-header-text {
