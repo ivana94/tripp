@@ -7,7 +7,7 @@ export default function Nav({ navIsVisible, stopBubbling }) {
     return (
         <nav 
             className = {`${ navIsVisible ? "on" : "off" } nav-container`}
-            onClick = { stopBubbling }
+            onClick = { e =>  e.target.pathname ? null : stopBubbling(e) }
         >
             <ul>
                 <li>
