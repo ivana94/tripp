@@ -5,6 +5,7 @@ const prices = require('./lib/prices');
 const port = process.env.PORT || 5000;
 const { catchErrors } = require('./handlers/catchErrors');
 const { handleLogin } = require('./handlers/login');
+const users = require('./lib/users');
 
 const config = require('./routes/config');
 
@@ -16,8 +17,8 @@ app.get('/get-hiragana', (req, res) => {
 });
 
 app.get('/user', async (req, res) => {
-    // let user = await users.getUserById(req.session.userId);
-    res.json({ notDone: true });
+    let user = await users.getUserById(req.session.userId);
+    res.json(user);
 });
 
 app.post('/login', catchErrors(handleLogin));

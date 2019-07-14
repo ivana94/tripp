@@ -9,11 +9,14 @@ import Nav from './nav';
 import Profile from './profile/profile';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { useToggle } from './hooks/useToggle';
+import { useAxios } from './hooks/useAxios';
 
 export default function App() {
 
     const { editorIsVisible:navIsVisible, toggle:toggleNav } = useToggle();
-
+    const { first, color, id:userId  } = useAxios('/user');
+    const prices = useAxios('/prices');
+    
     return (
         <div 
             className = {`${ navIsVisible ? "darken-background" : "" } App`}
@@ -34,7 +37,7 @@ export default function App() {
                                render={() => (
                                     <div>
                                         <Info />
-                                        <Prices />
+                                        <Prices prices = { prices } />
                                         <Dashboard />
                                         <section className = "section-header">
                                             <h1>Spring 2021. Let's go.</h1>
@@ -44,7 +47,12 @@ export default function App() {
                            />
 
                         <Route path = "/learn" component = { Worksheet } />
-                        <Route path = "/profile" component = { Profile } />
+                        <Route path = "/profile" render = { _ => (
+                            <Profile 
+                                first = { first } 
+                                color = { color } 
+                                prices = { prices.filter(prc => prc.userid === userId )}
+                        />) } />
                         <Route path = "/dashboard" component = { Dashboard } />
 
                         <Redirect path="*" to="/" />

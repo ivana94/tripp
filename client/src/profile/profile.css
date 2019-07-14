@@ -1,0 +1,33 @@
+.activities-header {
+    margin-top: 5rem;
+}
+
+.expenses-header {
+    margin-top: 30rem;
+}
+
+.profile-container {
+    text-align: left;
+    padding: 0 5rem;
+}
+
+.profile-price-card {
+    width: 50%;
+    background: white;
+    color: black;
+    margin: 1rem 0;
+    height: 5rem;
+    border-radius: 5px;
+}
+
+p .profile-price-card:last-child {
+    margin-bottom: 30rem;
+}
+
+.activity-desc {
+    background: goldenrod;
+}
+
+.expense-desc {
+    background: violet;
+}

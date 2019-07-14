@@ -6,11 +6,12 @@
 }
 
 .price-card {
-    width: 100%;
+    width: 50%;
     background: white;
     color: black;
-    margin: 1rem 0;
+    margin: 1rem auto;
     height: 5rem;
+    border-radius: 5px;
 }
 
 .activity-desc {
@@ -19,6 +20,10 @@
 
 .expense-desc {
     background: violet;
+}
+
+.price-card div {
+    margin: 1rem;
 }
 
 .price-left {

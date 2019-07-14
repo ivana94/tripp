@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS expenses;
 
 CREATE TABLE expenses (
     id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(id),
     item VARCHAR(255) NOT NULL,
     is_activity BOOLEAN DEFAULT FALSE,
     is_expense BOOLEAN DEFAULT FALSE,
@@ -10,7 +11,7 @@ CREATE TABLE expenses (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO expenses (item, is_activity, city, price) VALUES ('Ghibli Museum', true, 'Tokyo', 9);
-INSERT INTO expenses (item, is_expense, price) VALUES ('flight', true, 1000);
-INSERT INTO expenses (item, is_expense, price) VALUES ('lodging', true, 1000);
-INSERT INTO expenses (item, is_expense, price) VALUES ('JR Pass', true, 414);
+INSERT INTO expenses (item, user_id, is_activity, city, price) VALUES ('Ghibli Museum', 1, true, 'Tokyo', 9);
+INSERT INTO expenses (item, user_id, is_expense, price) VALUES ('flight', 1, true, 1000);
+INSERT INTO expenses (item, user_id, is_expense, price) VALUES ('lodging', 1, true, 1000);
+INSERT INTO expenses (item, user_id, is_expense, price) VALUES ('JR Pass', 1, true, 414);
