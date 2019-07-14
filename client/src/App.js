@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Header from './header';
 import Info from './info';
 import Prices from './prices';
 import Dashboard from './dashboard';
@@ -18,25 +19,8 @@ export default function App() {
             className = {`${ navIsVisible ? "darken-background" : "" } App`}
             onClick = { navIsVisible ? toggleNav : null }
         >
-            <header className="App-header">
-                <img 
-                    className = 'hamburger-icon' 
-                    src = '/icons/hamburger-menu.svg' 
-                    onClick = { toggleNav } 
-                    alt = 'hamburger icon that, when clicked, will toggle a side menu to appear' 
-                />
-                <div className = "header-image-container">
-                    <img className = "App-header-image" src = '/jp.jpg' alt = 'busy street in Tokyo'/>
-                </div>
-                <h1 className = "App-header-text">日本 !</h1>
-
-            </header>
-
             
-
-            <section className = "section-header">
-                <h1>Spring 2021. Let's go.</h1>
-            </section>
+            <Header toggleNav = { toggleNav } />
 
             <BrowserRouter>
                 <div>
@@ -48,11 +32,14 @@ export default function App() {
                         <Route
                                exact path="/"
                                render={() => (
-                                   <div>
-                                       <Info />
-                                       <Prices />
-                                       <Dashboard />
-                                   </div>
+                                    <div>
+                                        <Info />
+                                        <Prices />
+                                        <Dashboard />
+                                        <section className = "section-header">
+                                            <h1>Spring 2021. Let's go.</h1>
+                                        </section>
+                                    </div>
                                )}
                            />
 
