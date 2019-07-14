@@ -19,6 +19,12 @@ export default function Profile({ first, color, prices }) {
 
             <h3>all together everything will cost:</h3>
             <p className = 'total-cost'>${ !!prices.length && prices.reduce((a,b) => a + b.price, 0) }</p>
+
+            <div className='pie'>
+                <div className='pie__segment' style={{'--offset': 0, '--value': 55, '--bg':'#db0a5b', '--over50': 1}}></div>
+                <div className='pie__segment' style={{'--offset': 55, '--value': 10, '--bg':'orange'}}></div>
+                {/* <div className='pie__segment' style={{'--offset': 70, '--value': 90, '--bg':'white'}}></div> */}
+            </div>
         </div>
     );
 };

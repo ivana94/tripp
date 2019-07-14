@@ -1,3 +1,7 @@
+:root {
+    --size: 500;
+}
+
 .activities-header {
     margin-top: 5rem;
 }
@@ -6,7 +10,7 @@
     margin-top: 30rem;
 }
 
-.profile-container {
+.profilxe-container {
     text-align: left;
     padding: 0 5rem;
 }
@@ -31,3 +35,42 @@ p .profile-price-card:last-child {
 .expense-desc {
     background: violet;
 }
+
+/* PIE STYLING */
+.pie {
+    height: calc(var(--size, 200) * 1px);
+    position: relative;
+    width: calc(var(--size, 200) * 1px);
+    border-radius: 100%;
+    background: #639;
+    overflow: hidden;
+}
+
+.pie__segment {
+    --degrees: calc((var(--offset, 0) / 100) * 360);
+    height: 100%;
+    position: absolute;
+    transform: translate(0, -50%) rotate(90deg) rotate(calc(var(--degrees, 0) * 1deg));
+    transform-origin: 50% 100%;
+    width: 100%;
+}
+
+.pie__segment::before, .pie__segment::after {
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.pie__segment::before {
+    --degrees: calc((var(--value, 45) / 100) * 360);
+    background: var(--bg, #abc);
+    transform: translate(0, 100%) rotate(calc(--degrees) * 1deg);
+    transform-origin: 50% 0;
+}
+
+.pie__segment::after {
+    background: var(--bg, #abc);
+    opacity: var(--over50, 0);
+}
+
