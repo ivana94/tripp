@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useInput } from '../hooks/useInput';
-import axios from '../axios';
+import { useInput } from '../../../hooks/useInput';
+import axios from '../../../utils/axios';
 import './login.css';
 
 export default function Login() {

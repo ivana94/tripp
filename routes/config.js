@@ -1,5 +1,4 @@
 const cs = require('cookie-session');
-const bp = require("body-parser");
 const csurf = require("csurf");
 const { secret } = require('./../secrets');
 
@@ -7,7 +6,7 @@ module.exports = (express, app) => {
 
     app.use(cs({ secret, maxAge: 24 * 60 * 60 * 1000 }));
 
-    app.use(bp.json());
+    app.use(express.json());
 
     app.use(csurf());
     app.use((req, res, next) => {

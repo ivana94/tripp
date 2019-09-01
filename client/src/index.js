@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Welcome from './authentication/Welcome';
+import App from './components/app';
+import Welcome from './components/welcome';
 import * as serviceWorker from './serviceWorker';
 
 let component;

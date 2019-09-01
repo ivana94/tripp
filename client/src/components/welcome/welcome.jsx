@@ -1,6 +1,6 @@
 import React from 'react';
 import Login from './login';
-import './Welcome.css';
+import './welcome.css';
 
 export default function Welcome() {
     return (

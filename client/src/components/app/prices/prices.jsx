@@ -1,6 +1,6 @@
 import React from 'react';
 import './prices.css';
-import { useToggle } from './hooks/useToggle';
+import { useToggle } from '../../../hooks/useToggle';
 import PriceEditor from './price-editor';
 import Price from './price';
 

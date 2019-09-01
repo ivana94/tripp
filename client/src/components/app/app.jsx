@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './app.css';
 import Header from './header';
 import Info from './info';
 import Prices from './prices';
@@ -8,27 +8,27 @@ import Worksheet from './worksheet';
 import Nav from './nav';
 import Profile from './profile/profile';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import { useToggle } from './hooks/useToggle';
-import { useAxios } from './hooks/useAxios';
+import { useToggle } from '../../hooks/useToggle';
+import { useAxios } from '../../hooks/useAxios';
 
 export default function App() {
 
     const { editorIsVisible:navIsVisible, toggle:toggleNav } = useToggle();
     const { first, color, id:userId  } = useAxios('/user');
     const prices = useAxios('/prices');
-    
+
     return (
-        <div 
+        <div
             className = {`${ navIsVisible ? "darken-background" : "" } App`}
             onClick = { navIsVisible ? toggleNav : null }
         >
-            
+
             <Header toggleNav = { toggleNav } />
 
             <BrowserRouter>
                 <div>
-                    <Nav 
-                        navIsVisible = { navIsVisible } 
+                    <Nav
+                        navIsVisible = { navIsVisible }
                         stopBubbling = { e => e.stopPropagation() }
                     />
                     <Switch>
@@ -48,9 +48,9 @@ export default function App() {
 
                         <Route path = "/learn" component = { Worksheet } />
                         <Route path = "/profile" render = { _ => (
-                            <Profile 
-                                first = { first } 
-                                color = { color } 
+                            <Profile
+                                first = { first }
+                                color = { color }
                                 prices = { prices.filter(prc => prc.userid === userId )}
                         />) } />
                         <Route path = "/dashboard" component = { Dashboard } />

@@ -11,7 +11,7 @@ const config = require('./routes/config');
 
 // sets up body parser, cookie session, csurf, serves static directory
 config(express, app);
-        
+
 app.get('/get-hiragana', (req, res) => {
     res.json({ hiragana: require('./content/hiragana') });
 });
@@ -40,7 +40,3 @@ app.get('/logout', (req, res) => {
 });
 
 app.listen(port, () => console.log('listening'));
-
-// process.on('unhandledRejection', err => {
-//     console.log('unhandledRejection: ', err);
-// })

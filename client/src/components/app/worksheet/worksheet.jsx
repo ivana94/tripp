@@ -1,6 +1,6 @@
 import React from 'react';
-import { useAxios } from './hooks/useAxios';
-import { scrambleKana } from './lib/learn';
+import { useAxios } from '../../../hooks/useAxios';
+import { scrambleKana } from './utils/learn';
 import './worksheet.css'
 
 export default function Worksheet() {

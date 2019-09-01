@@ -1,6 +1,6 @@
 import React from 'react';
 import './profile.css';
-import Price from '../price';
+import Price from '../prices/price';
 
 export default function Profile({ first, color, prices }) {
     return (
